@@ -12,5 +12,6 @@ func (r *MongoRepository) UpdateTask(ID primitive.ObjectID, task model.MongoTask
 	filter := bson.D{{"_id", ID}}
 	update := bson.D{{"$set", bson.D{{"title", task.Title}, {"completed", task.Completed}}}}
 	_, err := r.collection.UpdateOne(context.TODO(), filter, update)
+
 	return err
 }
