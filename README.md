@@ -1,13 +1,21 @@
 # Golang-workshop
 
-Topics:
+## Topics:
+
+### easy:
 1. types
 2. for and loops
 3. arrays
 4. slices
 5. maps
 
+### medium:
+1. MongoDB
+2. HTTP
+3. API
+
+
 Also, practice after each topic and extra coding exercise inside /practice folder
 
-version 0.1.0
-updated: 05/25/2024
+version 0.1.1
+updated: 05/26/2024
