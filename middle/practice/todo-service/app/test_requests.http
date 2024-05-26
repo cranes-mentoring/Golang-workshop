@@ -31,11 +31,10 @@ POST http://localhost:8080/api/v1/complete?id=66532b210d9944a92a88ef4b
 #    "title": "Buy groceries and cook dinner",
 #    "completed": false
 #}'
-PUT http://localhost:8080/api/v1/update
+PUT http://localhost:8080/api/v1/update?id=000000000000000000000000
 Content-Type: application/json
 
 {
-  "id": "66532b210d9944a92a88ef4b",
   "title": "Buy groceries and cook dinner"
 }
 

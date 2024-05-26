@@ -7,7 +7,7 @@ import (
 
 type TodoService interface {
 	AddTask(task model.Task) error
-	UpdateTask(task model.Task) error
+	UpdateTask(ID string, task model.Task) error
 	CompleteTask(ID string) error
 	GetAllTasks() ([]model.Task, error)
 }
