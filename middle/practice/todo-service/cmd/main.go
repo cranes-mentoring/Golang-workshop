@@ -9,7 +9,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
+	"todo-service/pkg/handler"
 	"todo-service/pkg/usecase/task/repository"
+	"todo-service/pkg/usecase/task/service"
 )
 
 func main() {
@@ -36,7 +38,15 @@ func main() {
 	log.Println("Connected to MongoDB!")
 
 	// Initialize repository, service, and handler
-	_ = repository.NewMongoRepository(client)
+	todoRepo := repository.NewMongoRepository(client)
+	todoService := service.NewService(todoRepo)
+	todoHandler := handler.NewHandler(todoService)
+
+	// Set up routes
+	http.HandleFunc("/api/v1/add", todoHandler.AddTask)
+	http.HandleFunc("/api/v1/get-all", todoHandler.GetAllTasks)
+	http.HandleFunc("/api/v1/update", todoHandler.UpdateTask)
+	http.HandleFunc("/api/v1/complete", todoHandler.CompleteTask)
 
 	// Start the server
 	log.Fatal(http.ListenAndServe(":8080", nil))
