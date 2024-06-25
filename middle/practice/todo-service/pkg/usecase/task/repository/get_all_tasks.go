@@ -3,19 +3,20 @@ package repository
 import (
 	"context"
 
-	"go.mongodb.org/mongo-driver/bson"
 	"todo-service/pkg/model"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (r *MongoRepository) GetAllTasks() ([]model.MongoTask, error) {
+func (r *MongoRepository) GetAllTasks(ctx context.Context) ([]model.MongoTask, error) {
 	var tasks []model.MongoTask
-	cursor, err := r.collection.Find(context.TODO(), bson.D{})
+	cursor, err := r.collection.Find(ctx, bson.D{})
 	if err != nil {
 		return nil, err
 	}
-	defer cursor.Close(context.TODO())
+	defer cursor.Close(ctx)
 
-	for cursor.Next(context.TODO()) {
+	for cursor.Next(ctx) {
 		var task model.MongoTask
 		err := cursor.Decode(&task)
 		if err != nil {

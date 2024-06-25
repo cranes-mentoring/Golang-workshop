@@ -1,10 +1,13 @@
 package handler
 
 import (
+	"context"
 	"net/http"
 )
 
 func (h *Handler) CompleteTask(w http.ResponseWriter, r *http.Request) {
+	ctx := context.Background()
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
@@ -16,7 +19,7 @@ func (h *Handler) CompleteTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := h.Service.CompleteTask(id)
+	err := h.Service.CompleteTask(ctx, id)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

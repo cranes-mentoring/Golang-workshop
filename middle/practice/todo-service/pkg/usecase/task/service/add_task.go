@@ -1,10 +1,12 @@
 package service
 
 import (
+	"context"
+
 	"todo-service/pkg/mapper"
 	"todo-service/pkg/model"
 )
 
-func (s *Service) AddTask(task model.Task) error {
-	return s.Repo.AddTask(mapper.MapToNew(task))
+func (s *Service) AddTask(ctx context.Context, task model.Task) error {
+	return s.Repo.AddTask(ctx, mapper.MapToNew(task))
 }

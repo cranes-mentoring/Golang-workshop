@@ -1,12 +1,14 @@
 package service
 
 import (
+	"context"
+
 	"todo-service/pkg/mapper"
 	"todo-service/pkg/model"
 )
 
-func (s *Service) GetAllTasks() ([]model.Task, error) {
-	tasks, err := s.Repo.GetAllTasks()
+func (s *Service) GetAllTasks(ctx context.Context) ([]model.Task, error) {
+	tasks, err := s.Repo.GetAllTasks(ctx)
 	if err != nil {
 		return nil, err
 	}

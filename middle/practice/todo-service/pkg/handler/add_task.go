@@ -1,12 +1,16 @@
 package handler
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
+
 	"todo-service/pkg/model"
 )
 
 func (h *Handler) AddTask(w http.ResponseWriter, r *http.Request) {
+	ctx := context.Background()
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
@@ -19,7 +23,7 @@ func (h *Handler) AddTask(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = h.Service.AddTask(task)
+	err = h.Service.AddTask(ctx, task)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

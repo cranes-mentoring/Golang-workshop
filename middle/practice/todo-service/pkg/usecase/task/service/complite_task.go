@@ -1,5 +1,7 @@
 package service
 
-func (s *Service) CompleteTask(ID string) error {
-	return s.Repo.CompleteTask(ID)
+import "context"
+
+func (s *Service) CompleteTask(ctx context.Context, ID string) error {
+	return s.Repo.CompleteTask(ctx, ID)
 }

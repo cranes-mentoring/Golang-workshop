@@ -2,12 +2,12 @@ package repository
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func (r *MongoRepository) CompleteTask(id string) error {
+func (r *MongoRepository) CompleteTask(ctx context.Context, id string) error {
 	objID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return err
@@ -15,7 +15,7 @@ func (r *MongoRepository) CompleteTask(id string) error {
 
 	filter := bson.D{{"_id", objID}}
 	update := bson.D{{"$set", bson.D{{"completed", true}}}}
-	_, err = r.collection.UpdateOne(context.TODO(), filter, update)
+	_, err = r.collection.UpdateOne(ctx, filter, update)
 
 	return err
 }
