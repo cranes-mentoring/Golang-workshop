@@ -9,13 +9,6 @@ func MapToDto(task model.Task) model.MongoTask {
 	}
 }
 
-func MapToNew(task model.Task) model.NewTask {
-	return model.NewTask{
-		Title:     task.Title,
-		Completed: task.Completed,
-	}
-}
-
 func MapToModel(task model.MongoTask) model.Task {
 	return model.Task{
 		ID:        task.ID.Hex(),

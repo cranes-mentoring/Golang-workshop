@@ -8,5 +8,5 @@ import (
 )
 
 func (s *Service) AddTask(ctx context.Context, task model.Task) error {
-	return s.Repo.AddTask(ctx, mapper.MapToNew(task))
+	return s.Repo.AddTask(ctx, mapper.MapToDto(task))
 }

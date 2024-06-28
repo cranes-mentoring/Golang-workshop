@@ -9,7 +9,7 @@ import (
 )
 
 type Repository interface {
-	AddTask(ctx context.Context, task model.NewTask) error
+	AddTask(ctx context.Context, task model.MongoTask) error
 	UpdateTask(ctx context.Context, ID primitive.ObjectID, task model.MongoTask) error
 	CompleteTask(ctx context.Context, ID string) error
 	GetAllTasks(ctx context.Context) ([]model.MongoTask, error)

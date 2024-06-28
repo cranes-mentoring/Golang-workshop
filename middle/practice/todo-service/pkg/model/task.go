@@ -13,8 +13,3 @@ type MongoTask struct {
 	Title     string             `json:"title"`
 	Completed bool               `json:"completed"`
 }
-
-type NewTask struct {
-	Title     string `json:"title"`
-	Completed bool   `json:"completed"`
-}
