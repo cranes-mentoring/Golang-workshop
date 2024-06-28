@@ -44,7 +44,7 @@ func main() {
 
 	// Set up routes
 	http.HandleFunc("/api/v1/add", todoHandler.AddTask)
-	http.HandleFunc("/api/v1/update", todoHandler.UpdateTask)
+	http.HandleFunc("/api/v1/complite", todoHandler.CompleteTask)
 
 	// Start the server
 	log.Fatal(http.ListenAndServe(":8080", nil))
