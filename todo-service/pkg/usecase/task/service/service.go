@@ -9,9 +9,7 @@ import (
 
 type TodoService interface {
 	AddTask(ctx context.Context, task model.Task) error
-	UpdateTask(ctx context.Context, ID string, task model.Task) error
 	CompleteTask(ctx context.Context, ID string) error
-	GetAllTasks(ctx context.Context) ([]model.Task, error)
 }
 
 type Service struct {
