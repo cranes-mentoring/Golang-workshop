@@ -17,5 +17,5 @@
 
 Also, practice after each topic and extra coding exercise inside /practice folder
 
-version 0.1.1
-updated: 05/26/2024
+version 0.1.3
+updated: 06/28/2024
