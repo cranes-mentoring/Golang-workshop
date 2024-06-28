@@ -1,6 +1,11 @@
 # Golang-workshop
 
-## Topics:
+version 0.1.3  
+updated: 06/28/2024
+
+Also, practice after each topic and extra coding exercise inside _/practice_ folder
+
+# Topics:
 
 ### easy:
 1. types
@@ -13,11 +18,8 @@
 1. MongoDB
 2. HTTP
 3. API
+4. Interfaces and structures
 
 ![img](./img/main.jpeg)
 
 
-Also, practice after each topic and extra coding exercise inside /practice folder
-
-version 0.1.3
-updated: 06/28/2024
