@@ -14,6 +14,8 @@
 2. HTTP
 3. API
 
+![img](./img/main.jpeg)
+
 
 Also, practice after each topic and extra coding exercise inside /practice folder
 
