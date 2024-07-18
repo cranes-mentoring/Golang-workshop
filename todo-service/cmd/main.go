@@ -18,17 +18,18 @@ import (
 )
 
 func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
 	// Set MongoDB client options
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
 		Username: "root",
 		Password: "example",
 	})
 
-	// Connect to MongoDB
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
 	client, err := mongo.Connect(ctx, clientOptions)
+	// cp 0.006 (0.01) -> 1CPU x6 -> 6CPU
+	// RM 15Mb -> 128Mb
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -11,7 +11,14 @@ import (
 
 func (r *MongoRepository) UpdateTask(ctx context.Context, ID primitive.ObjectID, task model.MongoTask) error {
 	filter := bson.D{{"_id", ID}}
-	update := bson.D{{"$set", bson.D{{"title", task.Title}, {"completed", task.Completed}}}}
+
+	update := bson.D{{"$set",
+		bson.D{
+			{"title", task.Title},
+			{"completed", task.Completed},
+			{"description", task.Description},
+		}}}
+
 	_, err := r.collection.UpdateOne(ctx, filter, update)
 
 	return err
